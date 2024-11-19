@@ -1,0 +1,8 @@
+.main_container__Posts_wrapper {
+    width: 100%;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column-reverse;
+    background: #222222;
+    padding: 16px 16px 0;
+}

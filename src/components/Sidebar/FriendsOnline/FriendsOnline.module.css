@@ -1,0 +1,31 @@
+.friendsOnline_Container{
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+}
+
+.friendsOnline_Container::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background-color: green; /* Зеленый цвет */
+    border-radius: 50%; /* Делаем элемент круглым */
+    position: absolute; /* Позиционируем кружок */
+    left: 0; /* Располагаем его перед контейнером */
+    top: 50%;
+    transform: translateY(-50%); /* Центруем по вертикали */
+}
+
+.friendsOnline_Container img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.friendsOnline_Container p {
+    word-break: break-word; /* Разрешаем перенос слов */
+    white-space: normal; /* Текст может переноситься на следующую строку */
+    max-width: 150px; /* Ограничиваем ширину текста */
+    line-height: 1.2; /* Высота строки для читаемости */
+}

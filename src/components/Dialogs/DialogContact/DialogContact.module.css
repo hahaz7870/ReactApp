@@ -1,0 +1,27 @@
+.name{
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 18px;
+}
+
+.Contact_Container__Dialogue_Block{
+    padding: 20px;
+    background-color: #222222;
+    cursor: pointer;
+    border-top: 1px solid #3F3F3F;
+    display: flex;
+    align-items: center;
+}
+
+.Contact_Container__Dialogue_Block:last-child{
+    border-bottom: 1px solid #3F3F3F;
+}
+
+.Contact_Container__Dialogue_Block:hover{
+    background: #383838;
+}
+
+.Contact_Container__Dialogue_Block.active{
+    background-color: #383838;
+}
+

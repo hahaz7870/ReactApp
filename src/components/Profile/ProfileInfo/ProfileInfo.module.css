@@ -1,0 +1,44 @@
+.profile_info{
+    display: flex;
+    flex-direction: column;
+    color: #FFFFFF;
+}
+
+.Bold_Text {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.Small_Text {
+    font-size: 15px;
+    color: #BBBBBB;
+    margin-top: 4px;
+}
+
+.fff {
+    color: #fff;
+}
+
+.info_profile {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.main_container__user_container {
+    display: flex;
+    padding: 20px;
+}
+
+.main_container__user_container img {
+    border-radius: 8px;
+    margin-right: 20px;
+}
+
+.main_container__user_container p {
+    margin: 4px 0;
+}
+
+
+
+

@@ -1,0 +1,81 @@
+.Messages p{
+    color: #fff;
+    padding: 0 0 0 10px;
+}
+
+.Messages{
+    display: flex;
+    width: 100%;
+    background: #222222;
+}
+
+.Contact_Container{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+}
+
+.Message_Container{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.name{
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 18px;
+}
+
+.Message_wrapper{
+    padding: 20px;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.companion_name{
+    width: 100%;
+    padding: 20px;
+    font-size: 18px;
+    background: #222222;
+    text-align: center;
+    border-bottom: 1px solid #3F3F3F;
+    color: #ffffff;
+}
+
+.InputBlock {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #3F3F3F;
+    background: #292929;
+    position: relative;
+}
+
+.MessageInput {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #3F3F3F;
+    border-radius: 5px;
+    background: #222222;
+    color: #fff;
+    font-size: 15px;
+    outline: none;
+}
+
+.SendButton {
+    margin-left: 10px;
+    padding: 5px 20px;
+    border: none;
+    border-radius: 5px;
+    background: #ffffff;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.SendButton:hover {
+    background: #9b9b9b;
+}
+
+

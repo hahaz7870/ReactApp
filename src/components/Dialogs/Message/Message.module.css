@@ -1,0 +1,27 @@
+.message {
+    margin: 0 0 15px;
+    display: flex;
+    align-items: center;
+}
+
+.avatar{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.messageContent {
+    display: flex;
+    flex-direction: column;
+}
+
+.username {
+    color: #71AAD8;
+}
+
+.text {
+    color: #ffffff;
+    line-height: 1.4; /* Лучшая читаемость текста */
+}
+
