@@ -22,15 +22,15 @@ const AddPost = (props) => {
         <div className={ap.main_container__newPost_wrapper}>
             <div className={ap.container}>
                 <img src={User} className={ap.img} alt="User"/>
-                <input
-                    onChange={onPostChange}
-                    ref={newPostElement}
-                    value={props.newPostText}
-                    type="text"
-                    className={ap.input}
-                    placeholder="Что у вас нового?"
-                />
-                <button className={ap.button} onClick={addPost}>Опубликовать</button>
+                    <input
+                        onChange={onPostChange}
+                        ref={newPostElement}
+                        value={props.newPostText}
+                        type="text"
+                        className={ap.input}
+                        placeholder="Что у вас нового?"
+                    />
+                    <button className={ap.button} onClick={addPost}>Опубликовать</button>
             </div>
         </div>
     );

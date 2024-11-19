@@ -2,6 +2,7 @@ import React from "react";
 import s from './Dialogs.module.css'
 import Contact from "./DialogContact/DialogContact";
 import Message from "./Message/Message";
+import {SendText} from "../../Redux/State";
 
 const Dialogs = (props) => {
     let DialogsElements =
@@ -17,10 +18,10 @@ const Dialogs = (props) => {
     let sendMessageElement = React.createRef()
 
     let sendMessage = () => {
-        props.MessageText();
+        props.SendText();
     }
 
-    let NewMessageText = () => {
+    let newMessageText = () =>{
         let text = sendMessageElement.current.value;
         props.NewMessageText(text);
     }
@@ -41,8 +42,8 @@ const Dialogs = (props) => {
                 </div>
                 <div className={s.InputBlock}>
                     <input
-                        onChange={NewMessageText}
-                        value={props.state.newMessageText}
+                        onChange={newMessageText}
+                        value={props.state.messageText}
                         ref={sendMessageElement}
                         type="text"
                         placeholder="Напишите сообщение..."

@@ -1,4 +1,6 @@
-import {rerenderEntireTree} from "../render";
+let rerenderEntireTree = () =>{
+
+};
 
 let State = {
     profilePage: {
@@ -29,7 +31,7 @@ let State = {
             {id: 5, name: 'Илья'},
             {id: 6, name: 'Спанч Боб'},
         ],
-        newMessageText: '',
+        messageText: '',
     },
     sidebar: {
         friendsOnline: [
@@ -42,7 +44,7 @@ let State = {
 
 window.State = State;
 
-export let AddPost = () => {
+export const AddPost = () => {
 
     let newPost = {
         id: 5,
@@ -55,27 +57,34 @@ export let AddPost = () => {
     rerenderEntireTree(State);
 }
 
-export let NewPostText = (newText) => {
+export const NewPostText = (newText) => {
     State.profilePage.newPostText = newText;
     rerenderEntireTree(State);
 }
 
-export let MessageText = () => {
+export const SendText = () =>{
 
     let newMessage = {
         id: 9,
-        message: State.dialogsPage.newMessageText,
+        message: State.dialogsPage.messageText,
         username: 'Вы',
     }
 
     State.dialogsPage.MessagesData.push(newMessage);
-    State.dialogsPage.newMessageText = '';
+    State.dialogsPage.messageText = '';
     rerenderEntireTree(State);
 }
 
-export let NewMessageText = (MessageText) => {
-    State.dialogsPage.newMessageText = MessageText;
+export const NewMessageText = (MessageText) =>{
+    State.dialogsPage.messageText = MessageText;
     rerenderEntireTree(State);
 }
+
+
+
+export const Subscribe = (observer) => {
+    rerenderEntireTree = observer // наблюдатель (observer)
+}
+
 
 export default State;

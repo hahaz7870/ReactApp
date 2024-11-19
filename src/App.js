@@ -8,6 +8,7 @@ import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 // eslint-disable-next-line no-unused-vars
 import {BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
+import {NewMessageText, SendText} from "./Redux/State";
 
 
 const App = (props) => {
@@ -21,8 +22,8 @@ const App = (props) => {
                         <Routes>
                             <Route path='/' element={<Navigate to='/feed'/>}/>
                             <Route path='/dialog/*' element={<Dialogs state={props.State.dialogsPage}
-                                                                      MessageText={props.MessageText}
-                                                                      NewMessageText={props.NewMessageText}/>}
+                                                                      SendText={SendText}
+                                                                      NewMessageText={NewMessageText}/>}
                             />
                             <Route path='/profile' element={<Profile state={props.State.profilePage}
                                                                      addPost={props.addPost}
