@@ -19,7 +19,7 @@ const Profile = (props) => {
                     <ProfileInfo name={Name} status={Status} city={City} workLocation={WorkLocation}/>
             </div>
 
-            <AddPost addPost={props.addPost} newPostText={props.state.newPostText} NewPostText={props.NewPostText}/>
+            <AddPost dispatch={props.dispatch} newPostText={props.state.newPostText}/>
             <MyPosts PostData={props.state.PostData}/>
         </>
     )

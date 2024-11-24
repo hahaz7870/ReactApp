@@ -1,20 +1,21 @@
 import React from "react";
 import ap from './AddPost.module.css'
 import User from './../../../img/avatar3.jpg'
-
+import {addPostActionCreator} from "../../../Redux/State";
+import {updateNewPostTextActionCreator} from "../../../Redux/State";
 
 const AddPost = (props) => {
-
 
     let newPostElement = React.createRef()
 
     let addPost = () => {
-        props.addPost()
+        props.dispatch(addPostActionCreator())
     }
 
     let onPostChange = () => {
         let text = newPostElement.current.value;
-        props.NewPostText(text)
+        let action = updateNewPostTextActionCreator(text);
+        props.dispatch(action)
     }
 
 

@@ -2,28 +2,36 @@ import React from "react";
 import s from './Dialogs.module.css'
 import Contact from "./DialogContact/DialogContact";
 import Message from "./Message/Message";
+import {sendMessageCreator, updateNewMessageBodyCreator} from "../../Redux/State";
+
+
 
 const Dialogs = (props) => {
+
+    let state = props.store.getState().dialogsPage;
+
     let DialogsElements =
-        props.state.DialogsData.map(dialog =>
+        state.DialogsData.map(dialog =>
             <Contact id={dialog.id} name={dialog.name} key={dialog.id}/>
         )
 
     let MessagesElements =
-        props.state.MessagesData.map(message =>
+        state.MessagesData.map(message =>
             <Message id={message.id} text={message.message} username={message.username} key={message.id}/>
         )
 
-    let sendMessageElement = React.createRef()
+    let NewMessageBody = state.newMessageBody;
 
-    let sendMessage = () => {
-        props.SendText();
+    let onSendMessageClick = () => {
+        props.store.dispatch(sendMessageCreator())
     }
 
-    let newMessageText = () =>{
-        let text = sendMessageElement.current.value;
-        props.NewMessageText(text);
+    let onNewMessageChange = (e) => {
+        let body = e.target.value
+        props.store.dispatch(updateNewMessageBodyCreator(body))
+
     }
+
 
 
     return (
@@ -41,14 +49,13 @@ const Dialogs = (props) => {
                 </div>
                 <div className={s.InputBlock}>
                     <input
-                        onChange={newMessageText}
-                        value={props.state.messageText}
-                        ref={sendMessageElement}
+                        onChange={onNewMessageChange}
+                        value={NewMessageBody}
                         type="text"
                         placeholder="Напишите сообщение..."
                         className={s.MessageInput}
                     />
-                    <button onClick={sendMessage} className={s.SendButton}>Отправить</button>
+                    <button onClick={onSendMessageClick} className={s.SendButton}>Отправить</button>
                 </div>
             </div>
         </div>
