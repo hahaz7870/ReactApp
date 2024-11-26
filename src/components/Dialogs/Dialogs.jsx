@@ -1,14 +1,11 @@
-import React from "react";
 import s from './Dialogs.module.css'
 import Contact from "./DialogContact/DialogContact";
 import Message from "./Message/Message";
-import {sendMessageCreator, updateNewMessageBodyCreator} from "../../Redux/dialogs-reducer";
-
 
 
 const Dialogs = (props) => {
 
-    let state = props.store.getState().dialogsPage;
+    let state = props.state
 
     let DialogsElements =
         state.DialogsData.map(dialog =>
@@ -20,15 +17,14 @@ const Dialogs = (props) => {
             <Message id={message.id} text={message.message} username={message.username} key={message.id}/>
         )
 
-    let NewMessageBody = state.newMessageBody;
 
     let onSendMessageClick = () => {
-        props.store.dispatch(sendMessageCreator())
+        props.SendMessage()
     }
 
     let onNewMessageChange = (e) => {
         let body = e.target.value
-        props.store.dispatch(updateNewMessageBodyCreator(body))
+        props.UpdateNewMessageBody(body)
 
     }
 
@@ -50,7 +46,7 @@ const Dialogs = (props) => {
                 <div className={s.InputBlock}>
                     <input
                         onChange={onNewMessageChange}
-                        value={NewMessageBody}
+                        value={state.newMessageBody}
                         type="text"
                         placeholder="Напишите сообщение..."
                         className={s.MessageInput}

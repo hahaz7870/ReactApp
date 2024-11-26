@@ -1,8 +1,8 @@
 import './Profile.css'
 import logo from './../../img/nature.jpg'
-import AddPost from './AddPost/AddPost';
-import MyPosts from './MyPosts/MyPosts';
 import ProfileInfo from './ProfileInfo/ProfileInfo';
+import AddPostContainer from "./AddPost/AddPostContainer";
+import MyPostsContainer from "./MyPosts/MyPostsContainer";
 
 let City = "Новосибирск";
 let WorkLocation = "Завод";
@@ -19,8 +19,8 @@ const Profile = (props) => {
                     <ProfileInfo name={Name} status={Status} city={City} workLocation={WorkLocation}/>
             </div>
 
-            <AddPost dispatch={props.dispatch} newPostText={props.state.newPostText}/>
-            <MyPosts PostData={props.state.PostData}/>
+            <AddPostContainer store={props.store}/>
+            <MyPostsContainer store={props.store}/>
         </>
     )
 }
