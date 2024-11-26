@@ -1,7 +1,6 @@
-const AddPost = 'AddPost';
-const NewPostText = 'NewPostText';
-const UpdateNewMessageBody = 'UpdateNewMessageBody';
-const SendMessage = 'SendMessage';
+import profileReducer from "./profile-reducer";
+import dialogsReducer from "./dialogs-reducer";
+import sidebarReducer from "./sidebar-reducer";
 
 let store = {
     _State: {
@@ -60,53 +59,21 @@ let store = {
         console.log('Rerender Entire');
     },
 
-    getState(){
-      return this._State;
+    getState() {
+        return this._State;
     },
     Subscribe(observer) {
         this._callSubscriber = observer // наблюдатель (observer)
     },
 
     dispatch(action) {
-        if (action.type === AddPost) {
-            let newPost = {
-                id: 5,
-                message: this._State.profilePage.newPostText,
-                likes: 0,
-            }
+        this._State.profilePage = profileReducer(this._State.profilePage, action);
+        this._State.dialogsPage = dialogsReducer(this._State.dialogsPage, action);
+        this._State.sidebar = sidebarReducer(this._State.sidebar, action);
 
-            this._State.profilePage.PostData.push(newPost);
-            this._State.profilePage.newPostText = "";
-            this._callSubscriber(this._State);
-        }
-        else if (action.type === NewPostText) {
-            this._State.profilePage.newPostText = action.newText;
-            this._callSubscriber(this._State);
-        }
-        else if (action.type === UpdateNewMessageBody) {
-            this._State.dialogsPage.newMessageBody = action.body
-            this._callSubscriber(this._State);
-        }
-        else if (action.type === SendMessage) {
-            let body = this._State.dialogsPage.newMessageBody;
-            this._State.dialogsPage.newMessageBody = ''
-            this._State.dialogsPage.MessagesData.push({id: 9, message: body, username: 'Вы'});
-            this._callSubscriber(this._State);
-        }
+        this._callSubscriber(this._State);
     },
 }
-
-
-
-export const addPostActionCreator = () => ({type: AddPost})
-export const updateNewPostTextActionCreator = (text) =>
-    ({type: NewPostText, newText: text})
-
-export const sendMessageCreator = () => ({type: SendMessage})
-export const updateNewMessageBodyCreator = (body) =>
-    ({type: UpdateNewMessageBody, body: body})
-
-
 
 
 window.store = store;

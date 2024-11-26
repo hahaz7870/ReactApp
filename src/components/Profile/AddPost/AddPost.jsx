@@ -1,8 +1,8 @@
 import React from "react";
 import ap from './AddPost.module.css'
 import User from './../../../img/avatar3.jpg'
-import {addPostActionCreator} from "../../../Redux/State";
-import {updateNewPostTextActionCreator} from "../../../Redux/State";
+import {addPostActionCreator} from "../../../Redux/profile-reducer";
+import {updateNewPostTextActionCreator} from "../../../Redux/profile-reducer";
 
 const AddPost = (props) => {
 
